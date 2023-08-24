@@ -11,10 +11,21 @@ const PokemonPage = async ({ params }: { params: { pokemonName: string } }) => {
             <h1 className='text-4xl text-bold pt-4 mb-6'>
                 {pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1)}
             </h1>
-            <PokemonImage
-                image={pokemonObject.sprites.other.dream_world.front_default}
-                name={pokemonName}
-            />
+            <div
+                className='m-4'
+                style={{
+                    position: "relative",
+                    width: "300px",
+                    height: "300px",
+                }}
+            >
+                <PokemonImage
+                    image={
+                        pokemonObject.sprites.other.dream_world.front_default
+                    }
+                    name={pokemonName}
+                />
+            </div>
             <div className='flex justify-around m-4' style={{ width: "300px" }}>
                 <h3>Weight: {pokemonObject.weight}</h3>
                 <h3>Height: {pokemonObject.height}</h3>

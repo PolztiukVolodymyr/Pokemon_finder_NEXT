@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 
 const PokemonImage = ({ image, name }: { image: string; name: string }) => {
@@ -5,8 +6,11 @@ const PokemonImage = ({ image, name }: { image: string; name: string }) => {
         <Image
             src={image}
             alt={"Picture of " + name}
-            width={200}
-            height={200}
+            priority
+            fill
+            style={{ objectFit: "contain" }}
+            className='transition-opacity opacity-0 duration-[2s]'
+            onLoadingComplete={(image) => image.classList.remove("opacity-0")}
         />
     );
 };
